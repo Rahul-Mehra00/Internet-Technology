@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Accordian</title>
+	<meta charset="utf-8">
+  <style type="text/css">
+    .container{
+      width: 64%;
+      margin: auto;
+    }
+    .accordion {
+      background-color: #79B4B7;
+      color: #D4ECDD;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+      margin-top: 15px;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .accordion:hover {
+      background-color: #00A19D;
+      color: white;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    .panel{
+      padding: 15px 18px;
+      background-color: #eeeeee;
+      border-radius: 10px;
+     /* margin-top: 5px;*/
+      display: none;
+      overflow: hidden;
+       transition: max-height 0.2s ease-out;
+    }
+
+    .panel table{
+      color: #112031;  
+      font-size: 1rem;   
+      font-weight: bold;
+      width: 80%;
+      margin: auto;
+    }
+
+    .item-row{
+      margin: auto;
+      margin-bottom: 12px;
+    }
+
+    .item-name{
+      min-width: 60%;
+      max-width: 80%;
+    }
+
+    .item-price{
+      float: right;
+    }
+
+    .accordion:after {
+      content: '\02795'; /* Unicode character for "plus" sign (+) */
+      font-size: 14px;
+      color: #082032;
+      float: right;
+      margin-left: 5px;
+    }
+
+    .active:after {
+      content: "\2796"; /* Unicode character for "minus" sign (-) */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+      <table>
+        <tr class="item-row">
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+        <tr>
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+        <tr>
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+        <tr>
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+        <tr>
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+      </table>
+    </div>
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+      <table>
+        <tr class="item-row">
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+        <tr>
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+        <tr>
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+        <tr>
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+        <tr>
+          <td class="item-name">Paneer</td>
+          <td class="item-price">120/150</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    } 
+  </script>
+</body>
+</html>
